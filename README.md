@@ -2,18 +2,29 @@
 
 Quick start (dev):
 1. Create & activate virtualenv:
+2. 
    python -m venv venv
-   source venv/bin/activate   
+   
+   source venv/bin/activate
+    
    # or venv\Scripts\activate on Windows
-2. Install:
+4. Install:
    pip install -r requirements.txt
-3. Run migrations & create superuser:
+5. Run migrations & create superuser:
+6. 
    python manage.py makemigrations
+   
    python manage.py migrate
+   
    python manage.py createsuperuser
-4. Run server:
+   
+7. Run server:
+8. 
    python manage.py runserver
-5. Open http://127.0.0.1:8000/
+   
+9. Open http://127.0.0.1:8000/
+
+10. Project Screenshot — Blood Management System
 
 
 <img width="1831" height="903" alt="Screenshot 2025-10-28 231415" src="https://github.com/user-attachments/assets/ae10b1e0-6491-485f-bc4f-cc8d09173d69" />

@@ -1,0 +1,54 @@
+{% extends 'core/base.html' %}
+{% load i18n %}
+{% block body_class %}no-card{% endblock %}
+{% block content %}
+<section class="py-5 text-dark">
+	<div class="container">
+		<div class="row justify-content-center align-items-center">
+			<div class="col-lg-8 text-center">
+				<h1 class="display-5 fw-bold">{% trans "Welcome to the Blood Management System" %}</h1>
+				<p class="lead">{% trans "Find verified donors, submit requests, and coordinate donations quickly and securely. Built for hospitals, patients, and volunteers." %}</p>
+				<div class="d-flex gap-2 mt-3">
+					<a class="btn btn-primary btn-lg" href="{% url 'search-donors' %}">{% trans "Search Donors" %}</a>
+					<a class="btn btn-outline-secondary btn-lg" href="{% url 'register' %}">{% trans "Become a Donor" %}</a>
+				</div>
+			</div>
+		</div>
+
+		<hr class="my-5">
+
+		<div class="row text-center">
+			<div class="col-md-4 feature-box">
+				<h3>{% trans "Trusted Donor Network" %}</h3>
+				<p>{% trans "Verified donors across regions to help meet urgent and scheduled needs." %}</p>
+			</div>
+			<div class="col-md-4 feature-box">
+				<h3>{% trans "Secure Requests" %}</h3>
+				<p>{% trans "Confidential request handling and clear communication between hospitals and donors." %}</p>
+			</div>
+			<div class="col-md-4 feature-box">
+				<h3>{% trans "Real-time Coordination" %}</h3>
+				<p>{% trans "Manage appointments, donations, and records from a single dashboard." %}</p>
+			</div>
+		</div>
+
+		<div class="row mt-5">
+			<div class="col-lg-6">
+				<h4>{% trans "How it works" %}</h4>
+				<ol>
+					<li>{% trans "Search for donors by blood type and location." %}</li>
+					<li>{% trans "Submit a request with details and urgency level." %}</li>
+					<li>{% trans "Coordinate donation appointments and track fulfillment." %}</li>
+				</ol>
+			</div>
+            
+		</div>
+
+		<footer class="mt-5 text-center text-muted small">
+			<p class="mb-0">{% trans "Need help? Contact your local blood bank." %}</p>
+			<p class="mb-0">&copy; {{ now|date:"Y" }} {% trans "Blood Management System" %}</p>
+		</footer>
+	</div>
+</section>
+
+{% endblock %}

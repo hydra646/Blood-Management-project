@@ -1,0 +1,17 @@
+{% extends 'core/base.html' %}
+{% block content %}
+<div class="container py-5">
+  <div class="card p-4 mx-auto" style="max-width:720px;">
+    <h3>Email confirmation failed</h3>
+    {% if reason == 'expired' %}
+      <p>Your confirmation link has expired. Please <a href="{% url 'resend-confirmation' %}">request a new confirmation</a> or register again.</p>
+    {% elif reason == 'invalid' %}
+      <p>The confirmation link is invalid. Please request a new confirmation <a href="{% url 'resend-confirmation' %}">here</a>.</p>
+    {% elif reason == 'missing' %}
+      <p>User not found. Please register first.</p>
+    {% else %}
+      <p>Confirmation failed. Please try again or contact support.</p>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

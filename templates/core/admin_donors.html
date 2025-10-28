@@ -1,0 +1,5 @@
+{% extends 'core/base.html' %}
+{% block content %}
+<h2>Manage Donors</h2>
+<table class="table"><thead><tr><th>Username</th><th>Blood Group</th><th>City</th><th>Contact</th><th>Actions</th></tr></thead><tbody>{% for d in donors %}<tr><td>{{ d.username }}</td><td>{{ d.blood_group }}</td><td>{{ d.city }}</td><td>{{ d.email }} / {{ d.phone }}</td><td><a class="btn btn-sm btn-secondary" href="{% url 'edit-donor' d.pk %}">Edit</a></td></tr>{% empty %}<tr><td colspan="5">No donors found.</td></tr>{% endfor %}</tbody></table>
+{% endblock %}

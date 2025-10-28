@@ -1,0 +1,9 @@
+{% extends 'core/base.html' %}
+{% block content %}
+<h2>Edit Donor: {{ donor.username }}</h2>
+<form method="post">{% csrf_token %}
+  {{ form.as_p }}
+  <button class="btn btn-primary">Save</button>
+  <a class="btn btn-secondary" href="{% url 'manage-donors' %}">Cancel</a>
+</form>
+{% endblock %}

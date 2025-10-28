@@ -1,0 +1,6 @@
+{% extends 'core/base.html' %}
+{% block content %}
+<h2>Manage Blood Banks</h2>
+<a class="btn btn-primary mb-3" href="{% url 'new-bank' %}">New Bank</a>
+<table class="table"><thead><tr><th>Name</th><th>City</th><th>Contact</th><th>Actions</th></tr></thead><tbody>{% for b in banks %}<tr><td>{{ b.name }}</td><td>{{ b.city }}</td><td>{{ b.contact }}</td><td><a class="btn btn-sm btn-secondary" href="{% url 'edit-bank' b.pk %}">Edit</a> <a class="btn btn-sm btn-danger" href="{% url 'delete-bank' b.pk %}">Delete</a></td></tr>{% empty %}<tr><td colspan="4">No banks found.</td></tr>{% endfor %}</tbody></table>
+{% endblock %}

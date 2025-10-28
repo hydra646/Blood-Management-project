@@ -1,0 +1,216 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% load i18n %}
+{% block body_class %}admin-dashboard-page{% endblock %}
+{% block content %}
+<!-- Admin Dashboard Header -->
+<div class="admin-header-card mb-4">
+	<div class="d-flex justify-content-between align-items-center">
+		<div>
+			<h2 class="mb-1 admin-title">{% trans "Admin Dashboard" %}</h2>
+			<p class="text-muted mb-0">{% trans "Manage blood inventory, requests, and donors" %}</p>
+		</div>
+		<a href="{% url 'analytics-dashboard' %}" class="btn btn-analytics">
+			<i class="bi bi-graph-up"></i> 📊 {% trans "View Analytics" %}
+		</a>
+	</div>
+</div>
+
+<!-- Stats Cards -->
+<div class="row mb-4 g-3">
+	<div class="col-sm-4">
+		<a href="{% url 'manage-donors' %}" class="stat-card-link">
+			<div class="stat-card stat-card-donors">
+				<div class="stat-icon">
+					<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 16 16">
+						<path d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1h8zm-7.978-1A.261.261 0 0 1 7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002a.274.274 0 0 1-.014.002H7.022zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0zM6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816zM4.92 10A5.493 5.493 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275zM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0zm3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/>
+					</svg>
+				</div>
+				<div class="stat-content">
+					<h6 class="stat-label">{% trans "Total Donors" %}</h6>
+					<h3 class="stat-value">{{ total_donors }}</h3>
+				</div>
+			</div>
+		</a>
+	</div>
+	<div class="col-sm-4">
+		<a href="{% url 'manage-requests' %}" class="stat-card-link">
+			<div class="stat-card stat-card-requests">
+				<div class="stat-icon">
+					<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 16 16">
+						<path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+						<path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+					</svg>
+				</div>
+				<div class="stat-content">
+					<h6 class="stat-label">{% trans "Total Requests" %}</h6>
+					<h3 class="stat-value">{{ total_requests }}</h3>
+				</div>
+			</div>
+		</a>
+	</div>
+	<div class="col-sm-4">
+		<a href="#pending-requests-section" class="stat-card-link">
+			<div class="stat-card stat-card-pending">
+				<div class="stat-icon">
+					<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 16 16">
+						<path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+						<path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+					</svg>
+				</div>
+				<div class="stat-content">
+					<h6 class="stat-label">{% trans "Pending Requests" %}</h6>
+					<h3 class="stat-value">{{ pending.count }}</h3>
+				</div>
+			</div>
+		</a>
+	</div>
+</div>
+
+<!-- Pending Requests Table -->
+<div class="card admin-table-card mb-4" id="pending-requests-section">
+	<div class="card-header">
+		<h4 class="mb-0">{% trans "Pending Requests" %}</h4>
+	</div>
+	<div class="card-body">
+		<div class="table-responsive">
+			<table class="table table-hover admin-table">
+				<thead>
+					<tr>
+						<th>{% trans "User" %}</th>
+						<th>{% trans "Blood Group" %}</th>
+						<th>{% trans "Units" %}</th>
+						<th>{% trans "City" %}</th>
+						<th>{% trans "Date" %}</th>
+						<th>{% trans "Actions" %}</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for r in pending %}
+					<tr>
+						<td>
+							<div class="user-info">
+								<strong>{{ r.requester.username }}</strong>
+								<small class="d-block text-muted">{{ r.requester.email }}</small>
+							</div>
+						</td>
+						<td><span class="badge blood-badge">{{ r.blood_group }}</span></td>
+						<td><span class="units-badge">{{ r.units }} {% trans "units" %}</span></td>
+						<td>{{ r.city }}</td>
+						<td>{{ r.created_at|date:"M d, Y" }}</td>
+						<td>
+							<a class="btn btn-sm btn-approve" href="{% url 'approve-request' r.pk %}">
+								✓ {% trans "Approve" %}
+							</a>
+						</td>
+					</tr>
+					{% empty %}
+					<tr>
+						<td colspan="6" class="text-center text-muted py-4">
+							{% trans "No pending requests" %}
+						</td>
+					</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+<!-- Inventory Section -->
+<div class="row g-3">
+	<div class="col-lg-8">
+		<div class="card chart-card">
+			<div class="card-header">
+				<h4 class="mb-0">{% trans "Blood Inventory Overview" %}</h4>
+			</div>
+			<div class="card-body">
+				<div style="height:320px;">
+					<canvas id="inventoryChart"></canvas>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-lg-4">
+		<div class="card inventory-summary-card">
+			<div class="card-header">
+				<h4 class="mb-0">{% trans "Inventory Summary" %}</h4>
+			</div>
+			<div class="card-body">
+				<ul class="inventory-list">
+					{% for i in inventory %}
+					<li class="inventory-item">
+						<span class="inventory-group">{{ i.blood_group }}</span>
+						<span class="inventory-count">{{ i.total_units }} {% trans "units" %}</span>
+					</li>
+					{% empty %}
+					<li class="text-muted text-center py-3">{% trans "No inventory data" %}</li>
+					{% endfor %}
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+	(function(){
+		const data = {
+			labels: [{% for i in inventory %}'{{ i.blood_group }}'{% if not forloop.last %}, {% endif %}{% endfor %}],
+			datasets: [{
+				label: '{% trans "Units available" %}',
+				data: [{% for i in inventory %}{{ i.total_units }}{% if not forloop.last %}, {% endif %}{% endfor %}],
+				backgroundColor: [
+					'rgba(220, 53, 69, 0.8)',
+					'rgba(13, 110, 253, 0.8)',
+					'rgba(25, 135, 84, 0.8)',
+					'rgba(255, 193, 7, 0.8)',
+					'rgba(111, 66, 193, 0.8)',
+					'rgba(214, 51, 132, 0.8)',
+					'rgba(13, 202, 240, 0.8)',
+					'rgba(255, 99, 71, 0.8)'
+				],
+				borderColor: [
+					'rgba(220, 53, 69, 1)',
+					'rgba(13, 110, 253, 1)',
+					'rgba(25, 135, 84, 1)',
+					'rgba(255, 193, 7, 1)',
+					'rgba(111, 66, 193, 1)',
+					'rgba(214, 51, 132, 1)',
+					'rgba(13, 202, 240, 1)',
+					'rgba(255, 99, 71, 1)'
+				],
+				borderWidth: 2,
+				borderRadius: 8
+			}]
+		};
+		const ctx = document.getElementById('inventoryChart').getContext('2d');
+		new Chart(ctx, {
+			type:'bar', 
+			data: data, 
+			options:{
+				responsive: true, 
+				maintainAspectRatio: false,
+				plugins: {
+					legend: {
+						display: false
+					}
+				},
+				scales: {
+					y: {
+						beginAtZero: true,
+						grid: {
+							color: 'rgba(0, 0, 0, 0.05)'
+						}
+					},
+					x: {
+						grid: {
+							display: false
+						}
+					}
+				}
+			}
+		});
+	})();
+</script>
+{% endblock %}

@@ -1,0 +1,159 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% load i18n %}
+{% block content %}
+<div class="container py-4">
+  <h2 class="mb-4">📊 {% trans "Analytics Dashboard" %}</h2>
+  
+  <div class="row">
+    <!-- Blood Inventory Chart -->
+    <div class="col-md-6 mb-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">{% trans "Blood Inventory by Group" %}</h5>
+          <canvas id="inventoryChart"></canvas>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Donation Trends Chart -->
+    <div class="col-md-6 mb-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">{% trans "Donation Trends (Last 30 Days)" %}</h5>
+          <canvas id="donationTrendsChart"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row">
+    <!-- Donor Distribution Chart -->
+    <div class="col-md-6 mb-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">{% trans "Donor Distribution by Blood Group" %}</h5>
+          <canvas id="donorDistributionChart"></canvas>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Request Status Chart -->
+    <div class="col-md-6 mb-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">{% trans "Request Status Breakdown" %}</h5>
+          <canvas id="requestStatusChart"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script>
+// Blood Inventory Chart (Bar Chart)
+const inventoryCtx = document.getElementById('inventoryChart').getContext('2d');
+new Chart(inventoryCtx, {
+    type: 'bar',
+    data: {
+        labels: {{ inventory_labels|safe }},
+        datasets: [{
+            label: '{% trans "Units Available" %}',
+            data: {{ inventory_values|safe }},
+            backgroundColor: 'rgba(179, 0, 0, 0.7)',
+            borderColor: 'rgba(179, 0, 0, 1)',
+            borderWidth: 2
+        }]
+    },
+    options: {
+        responsive: true,
+        plugins: {
+            legend: { display: false }
+        },
+        scales: {
+            y: { beginAtZero: true }
+        }
+    }
+});
+
+// Donation Trends Chart (Line Chart)
+const donationTrendsCtx = document.getElementById('donationTrendsChart').getContext('2d');
+new Chart(donationTrendsCtx, {
+    type: 'line',
+    data: {
+        labels: {{ donation_labels|safe }},
+        datasets: [{
+            label: '{% trans "Approved Donations" %}',
+            data: {{ donation_values|safe }},
+            borderColor: 'rgba(46, 204, 113, 1)',
+            backgroundColor: 'rgba(46, 204, 113, 0.2)',
+            tension: 0.4,
+            fill: true
+        }]
+    },
+    options: {
+        responsive: true,
+        plugins: {
+            legend: { display: true }
+        },
+        scales: {
+            y: { beginAtZero: true }
+        }
+    }
+});
+
+// Donor Distribution Chart (Doughnut Chart)
+const donorDistCtx = document.getElementById('donorDistributionChart').getContext('2d');
+new Chart(donorDistCtx, {
+    type: 'doughnut',
+    data: {
+        labels: {{ donor_labels|safe }},
+        datasets: [{
+            data: {{ donor_values|safe }},
+            backgroundColor: [
+                'rgba(231, 76, 60, 0.7)',
+                'rgba(52, 152, 219, 0.7)',
+                'rgba(46, 204, 113, 0.7)',
+                'rgba(243, 156, 18, 0.7)',
+                'rgba(155, 89, 182, 0.7)',
+                'rgba(230, 126, 34, 0.7)',
+                'rgba(26, 188, 156, 0.7)',
+                'rgba(52, 73, 94, 0.7)'
+            ],
+            borderWidth: 2
+        }]
+    },
+    options: {
+        responsive: true,
+        plugins: {
+            legend: { position: 'bottom' }
+        }
+    }
+});
+
+// Request Status Chart (Pie Chart)
+const requestStatusCtx = document.getElementById('requestStatusChart').getContext('2d');
+new Chart(requestStatusCtx, {
+    type: 'pie',
+    data: {
+        labels: {{ status_labels|safe }},
+        datasets: [{
+            data: {{ status_values|safe }},
+            backgroundColor: [
+                'rgba(241, 196, 15, 0.7)',
+                'rgba(46, 204, 113, 0.7)',
+                'rgba(231, 76, 60, 0.7)'
+            ],
+            borderWidth: 2
+        }]
+    },
+    options: {
+        responsive: true,
+        plugins: {
+            legend: { position: 'bottom' }
+        }
+    }
+});
+</script>
+{% endblock %}

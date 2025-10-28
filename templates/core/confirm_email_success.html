@@ -1,0 +1,13 @@
+{% extends 'core/base.html' %}
+{% block content %}
+<div class="container py-5">
+  <div class="card p-4 mx-auto" style="max-width:720px;">
+    <h3>Email confirmation</h3>
+    {% if already %}
+      <p>Your email was already confirmed. You can <a href="{% url 'login' %}">login</a> now.</p>
+    {% else %}
+      <p>Thank you — your email has been confirmed. You can now <a href="{% url 'login' %}">login</a>.</p>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,294 @@
+# Bangla translations for Blood Management System
+# Copyright (C) 2025
+# This file is distributed under the same license as the Blood Management package.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-10-27 00:00+0600\n"
+"PO-Revision-Date: 2025-10-27 00:00+0600\n"
+"Last-Translator: \n"
+"Language-Team: Bangla\n"
+"Language: bn\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Profile"
+msgstr "প্রোফাইল"
+
+msgid "Admin Dashboard"
+msgstr "অ্যাডমিন ড্যাশবোর্ড"
+
+msgid "Manage blood inventory, requests, and donors"
+msgstr "রক্ত ইনভেন্টরি, অনুরোধ এবং দাতা পরিচালনা করুন"
+
+msgid "Total Donors"
+msgstr "মোট দাতা"
+
+msgid "Total Requests"
+msgstr "মোট অনুরোধ"
+
+msgid "Pending Requests"
+msgstr "অপেক্ষমান অনুরোধ"
+
+msgid "User"
+msgstr "ব্যবহারকারী"
+
+msgid "Blood Group"
+msgstr "রক্তের গ্রুপ"
+
+msgid "units"
+msgstr "ইউনিট"
+
+msgid "Actions"
+msgstr "কার্যক্রম"
+
+msgid "Approve"
+msgstr "অনুমোদন করুন"
+
+msgid "No pending requests"
+msgstr "কোনো অপেক্ষমান অনুরোধ নেই"
+
+msgid "Blood Inventory Overview"
+msgstr "রক্ত ইনভেন্টরি ওভারভিউ"
+
+msgid "Inventory Summary"
+msgstr "ইনভেন্টরি সারসংক্ষেপ"
+
+msgid "No inventory data"
+msgstr "কোনো ইনভেন্টরি ডেটা নেই"
+
+msgid "Units available"
+msgstr "ইউনিট উপলব্ধ"
+
+msgid "Dashboard"
+msgstr "ড্যাশবোর্ড"
+
+msgid "Admin"
+msgstr "অ্যাডমিন"
+
+msgid "Logout"
+msgstr "লগআউট"
+
+msgid "Login"
+msgstr "লগইন"
+
+msgid "Register"
+msgstr "নিবন্ধন"
+
+msgid "English"
+msgstr "ইংরেজি"
+
+msgid "Bangla"
+msgstr "বাংলা"
+
+msgid "Blood Management"
+msgstr "রক্ত ব্যবস্থাপনা"
+
+msgid "Sign in"
+msgstr "সাইন ইন"
+
+msgid "Username"
+msgstr "ব্যবহারকারীর নাম"
+
+msgid "Password"
+msgstr "পাসওয়ার্ড"
+
+msgid "Email"
+msgstr "ইমেইল"
+
+msgid "Create account"
+msgstr "অ্যাকাউন্ট তৈরি করুন"
+
+msgid "Analytics Dashboard"
+msgstr "বিশ্লেষণ ড্যাশবোর্ড"
+
+msgid "Blood Inventory by Group"
+msgstr "গ্রুপ অনুসারে রক্ত ইনভেন্টরি"
+msgid "Donation Trends (Last 30 Days)"
+msgstr "দান প্রবণতা (শেষ ৩০ দিন)"
+
+msgid "Donation Trends"
+msgstr "দান প্রবণতা"
+
+msgid "Donation Trends"
+msgstr "দান প্রবণতা"
+
+msgid "Donor Distribution by Blood Group"
+msgstr "রক্তের গ্রুপ অনুসারে দাতা বিতরণ"
+
+msgid "Request Status Breakdown"
+msgstr "অনুরোধ স্ট্যাটাস বিভাজন"
+
+msgid "Units Available"
+msgstr "ইউনিট উপলব্ধ"
+
+msgid "Approved Donations"
+msgstr "অনুমোদিত দান"
+
+msgid "View Analytics"
+msgstr "বিশ্লেষণ দেখুন"
+
+# Auth pages
+msgid "Access your donor or admin dashboard"
+msgstr "আপনার দাতা বা অ্যাডমিন ড্যাশবোর্ডে প্রবেশ করুন"
+
+msgid "New here?"
+msgstr "নতুন এখানে?"
+
+msgid "Create an account"
+msgstr "অ্যাকাউন্ট তৈরি করুন"
+
+# Register page
+msgid "Register as a donor or hospital. Admin accounts are created by site superusers."
+msgstr "দাতা বা হাসপাতাল হিসেবে নিবন্ধন করুন। অ্যাডমিন অ্যাকাউন্ট সাইট সুপারইউজাররা তৈরি করে।"
+
+msgid "Already have an account?"
+msgstr "ইতিমধ্যে একটি অ্যাকাউন্ট আছে?"
+
+# Home page
+msgid "Welcome to the Blood Management System"
+msgstr "ব্লাড ম্যানেজমেন্ট সিস্টেমে স্বাগতম"
+
+msgid "Find verified donors, submit requests, and coordinate donations quickly and securely. Built for hospitals, patients, and volunteers."
+msgstr "যাচাই করা দাতাদের খুঁজুন, অনুরোধ জমা দিন, এবং দ্রুত ও নিরাপদে দান সমন্বয় করুন। এটি হাসপাতাল, রোগী এবং স্বেচ্ছাসেবকদের জন্য নির্মিত।"
+
+msgid "Search Donors"
+msgstr "দাতা খুঁজুন"
+
+msgid "Become a Donor"
+msgstr "দাতা হোন"
+
+msgid "Trusted Donor Network"
+msgstr "বিশ্বস্ত দাতা নেটওয়ার্ক"
+
+msgid "Verified donors across regions to help meet urgent and scheduled needs."
+msgstr "জরুরি ও নির্ধারিত চাহিদা পূরণে বিভিন্ন অঞ্চলের যাচাইকৃত দাতারা।"
+
+msgid "Secure Requests"
+msgstr "নিরাপদ অনুরোধ"
+
+msgid "Confidential request handling and clear communication between hospitals and donors."
+msgstr "হাসপাতাল এবং দাতাদের মধ্যে গোপনীয় অনুরোধ প্রক্রিয়া ও স্পষ্ট যোগাযোগ।"
+
+msgid "Real-time Coordination"
+msgstr "রিয়েল-টাইম সমন্বয়"
+
+msgid "Manage appointments, donations, and records from a single dashboard."
+msgstr "একটি ড্যাশবোর্ড থেকেই অ্যাপয়েন্টমেন্ট, দান এবং রেকর্ড পরিচালনা করুন।"
+
+msgid "How it works"
+msgstr "কীভাবে কাজ করে"
+
+msgid "Search for donors by blood type and location."
+msgstr "রক্তের গ্রুপ ও অবস্থান অনুযায়ী দাতা খুঁজুন।"
+
+msgid "Submit a request with details and urgency level."
+msgstr "বিস্তারিত ও জরুরির মাত্রা সহ একটি অনুরোধ জমা দিন।"
+
+msgid "Coordinate donation appointments and track fulfillment."
+msgstr "দান অ্যাপয়েন্টমেন্ট সমন্বয় করুন এবং পূরণ অবস্থা ট্র্যাক করুন।"
+
+msgid "Need help? Contact your local blood bank or visit the"
+msgstr "সাহায্য দরকার? আপনার স্থানীয় রক্ত ব্যাংকের সাথে যোগাযোগ করুন অথবা দেখুন"
+
+msgid "help center"
+msgstr "সহায়তা কেন্দ্র"
+
+# Dashboard common
+msgid "Phone"
+msgstr "ফোন"
+
+msgid "City"
+msgstr "শহর"
+
+msgid "Blood Group"
+msgstr "রক্তের গ্রুপ"
+
+msgid "Create Request"
+msgstr "অনুরোধ তৈরি করুন"
+
+msgid "Place Blood Request"
+msgstr "রক্তের অনুরোধ করুন"
+
+msgid "Edit Profile"
+msgstr "প্রোফাইল সম্পাদনা"
+
+msgid "Quick actions"
+msgstr "দ্রুত কার্যক্রম"
+
+msgid "Search Blood Banks"
+msgstr "ব্লাড ব্যাংক খুঁজুন"
+
+msgid "New Request"
+msgstr "নতুন অনুরোধ"
+
+msgid "Donation History"
+msgstr "দান ইতিহাস"
+
+msgid "Date"
+msgstr "তারিখ"
+
+msgid "Bank"
+msgstr "ব্যাংক"
+
+msgid "Group"
+msgstr "গ্রুপ"
+
+msgid "Units"
+msgstr "ইউনিট"
+
+msgid "Approved"
+msgstr "অনুমোদিত"
+
+msgid "Yes"
+msgstr "হ্যাঁ"
+
+msgid "No"
+msgstr "না"
+
+msgid "No donations yet."
+msgstr "এখনও কোনো দান নেই।"
+
+msgid "Available blood groups (all banks)"
+msgstr "উপলব্ধ রক্তের গ্রুপ (সব ব্যাংক)"
+
+msgid "Your stats"
+msgstr "আপনার পরিসংখ্যান"
+
+msgid "Total donations:"
+msgstr "মোট দান:"
+
+msgid "Your Requests"
+msgstr "আপনার অনুরোধসমূহ"
+
+msgid "View all"
+msgstr "সব দেখুন"
+
+msgid "Status"
+msgstr "অবস্থা"
+
+msgid "Pending"
+msgstr "অপেক্ষমান"
+
+msgid "Rejected"
+msgstr "প্রত্যাখ্যাত"
+
+msgid "No requests yet."
+msgstr "এখনও কোনো অনুরোধ নেই।"
+
+# My Requests page
+msgid "My Blood Requests"
+msgstr "আমার রক্তের অনুরোধসমূহ"
+
+msgid "Create New Request"
+msgstr "নতুন অনুরোধ তৈরি করুন"
+
+msgid "No requests yet. Create your first request above."
+msgstr "এখনও কোনো অনুরোধ নেই। উপরে আপনার প্রথম অনুরোধটি তৈরি করুন।"
+
+# Profile page
+msgid "Save"
+msgstr "সংরক্ষণ করুন"
